@@ -1,5 +1,1 @@
-[
-  { "name": "1-cover.jpg", "query": "?shot=cover&photo=pier&caption=Sunset%20Heist", "w": 1080, "h": 1080 },
-  { "name": "2-editor.jpg", "query": "?shot=editor&photo=boulevard&caption=Boulevard%20Queen", "w": 1280, "h": 720 },
-  { "name": "3-cover.jpg", "query": "?shot=cover&photo=boulevard&caption=Boulevard%20Queen", "w": 1080, "h": 1080 }
-]
+[{"h":720,"name":"1-cover.jpg","q":88,"query":"?shot=cover&layout=trio&photo=pier&photo2=boulevard&caption=SUNSET%20HEIST&grade=sunset","w":1280},{"h":800,"name":"2-editor.jpg","q":88,"query":"?shot=editor&layout=trio&photo=pier&photo2=boulevard&caption=SUNSET%20HEIST&grade=sunset","w":1280},{"h":1280,"name":"3-cover-portrait.jpg","q":72,"query":"?shot=cover&layout=quad&photo=boulevard&photo2=pier&caption=BOULEVARD%20QUEEN&grade=night&size=1080x1350","w":1024},{"h":1080,"name":"4-cover-square.jpg","q":88,"query":"?shot=cover&layout=strip&photo=boulevard&photo2=pier&caption=PALM%20COAST&grade=gold&size=1080x1080","w":1080}]

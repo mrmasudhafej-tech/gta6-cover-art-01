@@ -3,20 +3,71 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cover Snap</title>
+<title>Sunset Palms — GTA-style Cover Art Maker</title>
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<header class="topbar">
+  <h1>Sunset Palms <span>Cover Studio</span></h1>
+  <p>Turn your photo into multi-panel GTA-style cover art. Offline — your photos never leave this machine.</p>
+</header>
 <main class="app">
-  <section class="controls">
-    <h1>Cover Snap</h1>
-    <p>A photo and a caption, made into a square cover.</p>
-    <label>Photo <input id="photo" type="file" accept="image/*"></label>
-    <label>Caption <input id="caption" type="text" maxlength="40" value="Sunset Heist"></label>
-    <button id="export" type="button">Export PNG 1080 x 1080</button>
+  <section class="controls" id="controls">
+    <h2>1 · Photos</h2>
+    <div class="row">
+      <button id="loadSamples" type="button">Load sample photos</button>
+      <label class="file-btn">Add your photos
+        <input id="photoFiles" type="file" accept="image/*" multiple>
+      </label>
+    </div>
+    <div id="photoTray" class="tray" aria-label="Loaded photos"></div>
+
+    <h2>2 · Layout</h2>
+    <div class="btn-row" id="layoutRow">
+      <button type="button" data-layout="hero">Hero</button>
+      <button type="button" data-layout="trio" class="active">Trio</button>
+      <button type="button" data-layout="quad">Quad</button>
+      <button type="button" data-layout="strip">Strip</button>
+    </div>
+
+    <h2>3 · Panels</h2>
+    <p class="hint">Click a panel on the preview to select it, then drag it to pan.</p>
+    <div id="panelEditors"></div>
+
+    <h2>4 · Caption &amp; grade</h2>
+    <label>Caption
+      <input id="caption" type="text" maxlength="40" value="Sunset Heist">
+    </label>
+    <label>Tagline
+      <input id="tagline" type="text" maxlength="40" value="Sunset Bay">
+    </label>
+    <label>Caption position
+      <select id="captionPos">
+        <option value="bottom" selected>Bottom</option>
+        <option value="top">Top</option>
+      </select>
+    </label>
+    <div class="btn-row" id="gradeRow">
+      <button type="button" data-grade="sunset" class="active">Neon Sunset</button>
+      <button type="button" data-grade="night">Vice Night</button>
+      <button type="button" data-grade="gold">Palm Gold</button>
+      <button type="button" data-grade="pop">Pop Flash</button>
+    </div>
+
+    <h2>5 · Export</h2>
+    <div class="btn-row" id="sizeRow">
+      <button type="button" data-size="1080x1080">1080 × 1080</button>
+      <button type="button" data-size="1080x1350">1080 × 1350</button>
+      <button type="button" data-size="1920x1080" class="active">1920 × 1080</button>
+    </div>
+    <button id="export" type="button" class="export">Export PNG</button>
     <p id="status" role="status"></p>
   </section>
-  <canvas id="cover" width="1080" height="1080" aria-label="The cover"></canvas>
+
+  <section class="stage">
+    <canvas id="cover" width="1920" height="1080" aria-label="The cover preview"></canvas>
+    <p class="stage-note">Click a panel to select it · drag to pan · zoom with the slider</p>
+  </section>
 </main>
 <script type="module" src="./src/main.js"></script>
 </body>

@@ -11,7 +11,7 @@
 // Outside the grader's container, MAKEFUN_OUTPUT_DIR stands in for /output:
 //   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 
-import { cpSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildDossier } from './vendor/makefun-app.ts';
@@ -38,3 +38,7 @@ writeFileSync(
     app_path_max_bytes: 1000,
   }),
 );
+
+// A one-line receipt on stdout: the dossier's byte size, so a local run can
+// confirm the entry was written without opening the file.
+console.log(`dossier.json: ${readFileSync(join(out, 'dossier.json')).length} bytes`);
